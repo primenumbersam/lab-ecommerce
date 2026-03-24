@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laroe Cafe24 Hero</title>
+</head>
+<body>
+
+<!-- CAFE24 복사 시작 (START COPY FOR CAFE24) -->
+
+<!-- TailwindCSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts & Custom Styles -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@100..900&display=swap');
+    
+    #laroe-hero-wrapper {
+        font-family: 'Outfit', sans-serif;
+        background-color: #ffffff;
+        color: #1A1A1A;
+        width: 100%;
+        height: 80vh; 
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    #laroe-hero-wrapper canvas {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+        filter: grayscale(1);
+        opacity: 0.6;
+    }
+
+    .font-display { font-family: 'Instrument Serif', serif; }
+
+    @keyframes textReveal {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .animate-reveal {
+        display: inline-block;
+        animation: textReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 0.7s; }
+
+    .grain-overlay {
+        position: absolute;
+        inset: 0;
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 6;
+        mix-blend-mode: multiply;
+        background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    }
+
+    #laroe-hero-wrapper .content-z { z-index: 10; }
+    #laroe-hero-wrapper .vignette-z { z-index: 5; }
+</style>
+
+<div id="laroe-hero-wrapper" class="flex items-center justify-center">
+    <canvas id="laroe-liquid-canvas"></canvas>
+    <div class="grain-overlay"></div>
+
+    <div class="relative content-z flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+        <h1 class="text-[40px] font-display leading-tight tracking-tight mb-6">
+            <span class="block overflow-hidden">
+                <span class="animate-reveal delay-1">기억은 향기로 완성됩니다.</span>
+            </span>
+        </h1>
+        
+        <div class="h-[1px] w-16 bg-[#1A1A1A]/20 my-4"></div>
+        
+        <p class="text-[20px] font-light tracking-[0.1em] text-[#1A1A1A]/70 uppercase">
+            <span class="block overflow-hidden">
+                <span class="animate-reveal delay-2">바이레도 블랑쉬의 순수함을 담은 프리미어 블랑</span>
+            </span>
+        </p>
+    </div>
+    
+    <div class="absolute inset-0 vignette-z bg-gradient-to-b from-white/30 via-transparent to-white/50 pointer-events-none"></div>
+</div>
+
+<script type="module">
+    const canvas = document.getElementById('laroe-liquid-canvas');
+    const imageUrl = 'https://images.unsplash.com/photo-1595152230551-469601460f7f?q=80&w=2000&auto=format&fit=crop'; 
+
+    const initLiquid = async () => {
+        if (!canvas) return;
+
+        try {
+            const { default: LiquidBackground } = await import('https://cdn.jsdelivr.net/npm/threejs-components@0.0.22/build/backgrounds/liquid1.min.js');
+            
+            const app = LiquidBackground(canvas);
+            
+            app.loadImage(imageUrl);
+            app.liquidPlane.material.metalness = 0.9;
+            app.liquidPlane.material.roughness = 0.1;
+            app.liquidPlane.uniforms.displacementScale.value = 3;
+            app.setRain(false);
+            
+        } catch (error) {
+            console.error("Liquid Animation Error:", error);
+            canvas.style.display = 'none';
+        }
+    };
+
+    window.addEventListener('load', () => {
+        requestAnimationFrame(initLiquid);
+    });
+</script>
+
+<!-- CAFE24 복사 종료 (END COPY FOR CAFE24) -->
+
+</body>
+</html>
