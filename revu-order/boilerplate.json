@@ -1,0 +1,51 @@
+{
+  "campaign_metadata": {
+    "brand_name": "라로에",
+    "product_category": "주방세제",
+    "platform": "네이버 / 인스타그램",
+    "campaign_type": "블로그(+구매평) / 피드"
+  },
+  "product_assets": {
+    "url_buy": "제품 구매 페이지 URL",
+    "url_thumbnail": "제품 대표 썸네일 이미지 URL",
+    "url_detail": "제품 상세 페이지 전체 또는 주요 이미지 URL"
+  },
+  "provision_details": {
+    "item_name": "라로에 멀티플 주방세제 체리향, 500ml, 2개",
+    "quantity": "제공 수량 10개",
+    "estimated_value": "제품 판매가 기준 금액"
+  },
+  "campaign_mission": {
+    "visual_requirements": [
+      "제품의 외관 디자인이 잘 보이는 고화질 사진 3장 이상",
+      "실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수",
+      "성분 표기 부분 또는 친환경 인증 마크 근접 촬영"
+    ],
+    "content_narrative": [
+      "제품의 세척력에 대한 주관적인 만족도 기술",
+      "피부 저자극 또는 친환경 (Eco-friendly) 특성 강조",
+      "세정 후 잔여물 없는 깔끔한 사용감 언급",
+      "브랜드만의 차별화된 향기 또는 용기 디자인의 편리성 설명"
+    ],
+    "special_instructions": "타사 제품과 직접적인 비교 금지 및 제품 구매 링크 (url_buy) 삽입 필수"
+  },
+  "keyword_strategy": {
+    "essential_keywords": [
+      "주방세제",
+      "주방세제추천",
+      "젖병세정제",
+      "기름기제거"
+    ],
+    "optional_keywords": [
+      "친환경세제",
+      "주방인테리어",
+      "살림템",
+      "설거지"
+    ]
+  },
+  "additional_notes": [
+    "작성된 리뷰는 브랜드 마케팅 용도로 2차 활용될 수 있음",
+    "공정거래위원회 가이드라인에 따른 광고 표기 문구 삽입 필수",
+    "리뷰 유지 기간 (최소 6개월) 준수"
+  ]
+}
