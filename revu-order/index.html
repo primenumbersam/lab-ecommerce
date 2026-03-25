@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라로에 - 캠페인 제안서 갤러리</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+        :root {
+            --primary: #0F172A;
+            --accent: #3B82F6;
+            --bg: #F8FAFC;
+            --card-bg: #FFFFFF;
+            --radius: 24px;
+            --transition: cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        header {
+            background-color: var(--bg);
+            color: var(--primary);
+            padding: 30px 10px 30px 10px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #1E293B 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            opacity: 0.6;
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto 100px auto;
+            padding: 0 40px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #E2E8F0;
+            padding: 10px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+            color: #64748B;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 1100px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #F1F5F9;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+            border-color: #E2E8F0;
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.05));
+        }
+
+        .card-content {
+            padding: 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #F1F5F9;
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            align-self: flex-start;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+            color: #1E293B;
+            letter-spacing: -0.5px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 25px;
+            border-top: 1px solid #F1F5F9;
+            color: #94A3B8;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .platform-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px transparent;
+        }
+
+        .dot.naver {
+            background: #2DB400;
+            box-shadow: 0 0 12px rgba(45, 180, 0, 0.4);
+        }
+
+        .dot.insta {
+            background: #E4405F;
+            box-shadow: 0 0 12px rgba(228, 64, 95, 0.4);
+        }
+
+        .view-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--accent);
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .card:hover .view-more {
+            gap: 10px;
+        }
+
+        [data-category] {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>라로에 (LAROE) 제안서 갤러리</h1>
+        <p>총 9개의 캠페인 전략 분석 및 기획안</p>
+    </header>
+    <div class="container">
+        <div class="filters"><button class="filter-btn active" onclick="filterData('all')">전체</button><button
+                class="filter-btn" onclick="filterData('주방세제')">주방세제</button><button class="filter-btn"
+                onclick="filterData('욕실클리너')">욕실클리너</button><button class="filter-btn"
+                onclick="filterData('섬유유연제')">섬유유연제</button><button class="filter-btn"
+                onclick="filterData('세탁세제')">세탁세제</button><button class="filter-btn"
+                onclick="filterData('세트')">세탁세트</button></div>
+        <div class="grid"><a href="proposals/proposal_0.html" class="card" data-category="주방세제">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%A0%9C.png"
+                        class="card-img" alt="주방세제">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">주방세제</span>
+                    <h3 class="card-title">네이버 블로그 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot naver"></span>네이버</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_1.html" class="card" data-category="주방세제">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%A0%9C.png"
+                        class="card-img" alt="주방세제">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">주방세제</span>
+                    <h3 class="card-title">인스타 피드 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot insta"></span>인스타</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_2.html" class="card" data-category="욕실클리너">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%9A%95%EC%8B%A4%ED%81%B4%EB%A6%AC%EB%84%88.png"
+                        class="card-img" alt="욕실클리너">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">욕실클리너</span>
+                    <h3 class="card-title">네이버 블로그 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot naver"></span>네이버</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_3.html" class="card" data-category="욕실클리너">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%9A%95%EC%8B%A4%ED%81%B4%EB%A6%AC%EB%84%88.png"
+                        class="card-img" alt="욕실클리너">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">욕실클리너</span>
+                    <h3 class="card-title">인스타 피드 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot insta"></span>인스타</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_4.html" class="card" data-category="섬유유연제">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%84%AC%EC%9C%A0%EC%9C%A0%EC%97%B0%EC%A0%9C.png"
+                        class="card-img" alt="섬유유연제">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">섬유유연제</span>
+                    <h3 class="card-title">네이버 블로그 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot naver"></span>네이버</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_5.html" class="card" data-category="섬유유연제">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%84%AC%EC%9C%A0%EC%9C%A0%EC%97%B0%EC%A0%9C.png"
+                        class="card-img" alt="섬유유연제">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">섬유유연제</span>
+                    <h3 class="card-title">인스타 피드 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot insta"></span>인스타</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_6.html" class="card" data-category="세탁세제">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%84%B8%ED%83%81%EC%84%B8%EC%A0%9C.png"
+                        class="card-img" alt="세탁세제">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">세탁세제</span>
+                    <h3 class="card-title">네이버 블로그 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot naver"></span>네이버</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_7.html" class="card" data-category="세탁세제">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%84%B8%ED%83%81%EC%84%B8%EC%A0%9C.png"
+                        class="card-img" alt="세탁세제">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">세탁세제</span>
+                    <h3 class="card-title">인스타 피드 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot insta"></span>인스타</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a><a href="proposals/proposal_8.html" class="card" data-category="세트">
+                <div class="card-img-wrapper"><img
+                        src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%84%B8%ED%8A%B8.png"
+                        class="card-img" alt="세트">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content"><span class="category-tag">세트</span>
+                    <h3 class="card-title">인스타 릴스 전략</h3>
+                    <div class="card-meta">
+                        <div class="platform-badge"><span class="dot insta"></span>인스타</div><span
+                            class="view-more">Details →</span>
+                    </div>
+                </div>
+            </a></div>
+    </div>
+    <script>
+        function filterData(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (event) event.target.classList.add('active');
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) { card.classList.remove('hidden'); }
+                else { card.classList.add('hidden'); }
+            });
+        }
+    </script>
+</body>
+
+</html>
