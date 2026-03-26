@@ -1,46 +1,43 @@
 {
   "campaign_metadata": {
-    "brand_name": "라로에",
+    "brand_name": "라로에 (LAROE)",
     "product_category": "주방세제",
-    "platform": "네이버 / 인스타그램",
-    "campaign_type": "블로그(+구매평) / 피드"
+    "platform": "네이버",
+    "campaign_type": "블로그"
   },
   "product_assets": {
-    "url_buy": "제품 구매 페이지 URL",
-    "url_thumbnail": "제품 대표 썸네일 이미지 URL",
-    "url_detail": "제품 상세 페이지 전체 또는 주요 이미지 URL"
+    "url_thumbnail": "https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%A0%9C.png",
+    "url_detail": "https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/ECA3BCEBB0A9EC84B8ECA09C.jpg",
+    "url_buy": "https://smartstore.naver.com/laroe/products/13270300429"
   },
   "provision_details": {
     "item_name": "라로에 멀티플 주방세제 체리향, 500ml, 2개",
     "quantity": "제공 수량 10개",
-    "estimated_value": "제품 판매가 기준 금액"
+    "estimated_value": "13,900원"
   },
   "campaign_mission": {
+    "special_instructions": "키워드, link 삽입, text 1000자 이상, img 15장 이상",
     "visual_requirements": [
-      "제품의 외관 디자인이 잘 보이는 고화질 사진 3장 이상",
-      "실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수",
-      "성분 표기 부분 또는 친환경 인증 마크 근접 촬영"
+      "고화질 이미지 15장 이상 + 동영상 또는 움짤 1개 이상. 식사 후 기름기 있는 후라이팬, 식기류 닦는 모습. 젖병, 이유식기, 채소/과일 세척 장면. 수세미에 거품이 충분히 나오는 모습.",
+      "상세페이지를 참고해 제품특징을 자연스럽게 언급해주세요.(상세페이지를 참고해주시되, 캡쳐 또는 똑같이 사용하지 말아주세요.)",
+      "제품의 외관 디자인이 잘 보이는 고화질 사진 15장 이상",
+      "실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수"
     ],
     "content_narrative": [
-      "제품의 세척력에 대한 주관적인 만족도 기술",
-      "피부 저자극 또는 친환경 (Eco-friendly) 특성 강조",
-      "세정 후 잔여물 없는 깔끔한 사용감 언급",
-      "브랜드만의 차별화된 향기 또는 용기 디자인의 편리성 설명"
-    ],
-    "special_instructions": "타사 제품과 직접적인 비교 금지 및 제품 구매 링크 (url_buy) 삽입 필수"
+      "한 번의 펌핑으로도 풍성한 거품과 강력한 세정력을 경험하세요. 라로에 멀티플 주방세제는 과일, 채소까지 씻을 수 있는 1종 세척세제 성분으로 만들어졌으며, 신선한 체리향으로 설거지 시간을 즐겁게 만들어줍니다.",
+      "한 제품으로 젖병/이유식기/채소/과일 세척 가능 강조(별도 세제 불편함 해소). 예쁜 디자인 및 합리적 가격(선물용)."
+    ]
   },
   "keyword_strategy": {
     "essential_keywords": [
-      "주방세제",
-      "주방세제추천",
-      "젖병세정제",
-      "기름기제거"
+      "라로에 주방세제",
+      "체리향 주방세제",
+      "친환경 주방세제"
     ],
     "optional_keywords": [
-      "친환경세제",
-      "주방인테리어",
-      "살림템",
-      "설거지"
+      "아기 주방세제",
+      "과일세척제",
+      "맨손설거지"
     ]
   },
   "additional_notes": [

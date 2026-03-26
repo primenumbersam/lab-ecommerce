@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>라로에 - 욕실클리너 - 네이버</title>
+    <title>라로에 (LAROE) - 욕실클리너 - 네이버</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-        
+
         :root {
-            --primary: #0F172A;
+            --primary: #575757;
             --accent: #3B82F6;
             --bg: #F8FAFC;
             --card-bg: #FFFFFF;
@@ -31,20 +32,27 @@
 
         /* Pattern background */
         body::before {
-            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
-            background-size: 40px 40px; opacity: 0.4; z-index: -1;
+            background-size: 40px 40px;
+            opacity: 0.4;
+            z-index: -1;
         }
 
         .container {
             max-width: 1000px;
-            margin: 0 auto 100px auto;
+            margin: 0 auto 10px auto;
             padding: 0 30px;
         }
 
         header {
-            padding: 40px 0 20px 0; /* Reduced margin/padding */
-            text-align: left; /* Align left for cleaner hierarchy */
+            padding: 40px 0 20px 0;
+            text-align: left;
         }
 
         .back-link {
@@ -73,11 +81,16 @@
             position: relative;
         }
 
-        .meta-tags { display: flex; gap: 10px; margin-bottom: 30px; }
+        .meta-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
         .tag {
             padding: 6px 16px;
             border-radius: 100px;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 800;
             background: rgba(59, 130, 246, 0.08);
             color: var(--accent);
@@ -87,7 +100,7 @@
 
         h1 {
             margin: 0 0 40px 0;
-            font-size: 48px;
+            font-size: 38px;
             font-weight: 800;
             color: var(--primary);
             letter-spacing: -2px;
@@ -100,19 +113,25 @@
 
         .thumbnail-container {
             width: 100%;
+            display: flex;
+            justify-content: center;
             border-radius: var(--inner-radius);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             margin-bottom: 50px;
         }
 
         .thumbnail {
-            width: 100%;
-            height: auto;
-            display: block;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--inner-radius);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             transition: transform 1.5s var(--transition);
         }
-        .thumbnail:hover { transform: scale(1.05); }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
 
         .grid-detail {
             display: grid;
@@ -123,12 +142,16 @@
 
         .detail-item {
             background: #F8FAFC;
-            padding: 30px;
+            padding: 20px;
             border-radius: var(--inner-radius);
             border: 1px solid #F1F5F9;
             transition: var(--transition);
         }
-        .detail-item:hover { border-color: var(--accent); background: white; }
+
+        .detail-item:hover {
+            border-color: var(--accent);
+            background: white;
+        }
 
         .label {
             font-size: 12px;
@@ -140,7 +163,12 @@
             display: block;
         }
 
-        .value { font-weight: 700; font-size: 22px; color: var(--primary); letter-spacing: -0.5px; }
+        .value {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
 
         h2 {
             margin: 60px 0 30px 0;
@@ -152,7 +180,13 @@
             gap: 15px;
             letter-spacing: -0.5px;
         }
-        h2::after { content: ''; flex-grow: 1; height: 2px; background: #F1F5F9; }
+
+        h2::after {
+            content: '';
+            flex-grow: 1;
+            height: 2px;
+            background: #F1F5F9;
+        }
 
         .mission-box {
             background: #FFFFFF;
@@ -160,10 +194,14 @@
             padding: 0;
         }
 
-        ul { padding: 0; margin: 0; }
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
         li {
-            margin-bottom: 15px;
-            padding: 20px 25px;
+            margin-bottom: 10px;
+            padding: 10px;
             background: #F8FAFC;
             border-radius: 16px;
             font-size: 16px;
@@ -171,7 +209,12 @@
             border: 1px solid transparent;
             transition: 0.3s;
         }
-        li:hover { border-color: var(--accent); background: white; transform: translateX(10px); }
+
+        li:hover {
+            border-color: var(--accent);
+            background: white;
+            transform: translateX(10px);
+        }
 
         .special-note {
             background: #FFFBEB;
@@ -181,11 +224,20 @@
             color: #92400E;
             font-weight: 600;
             line-height: 1.6;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
-        .keywords-group { margin-bottom: 40px; }
-        .keywords-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .keywords-group {
+            margin-bottom: 40px;
+        }
+
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
         .keyword-tag {
             background: #F1F5F9;
             padding: 8px 18px;
@@ -196,7 +248,13 @@
             border: 1px solid #E2E8F0;
             transition: 0.3s;
         }
-        .keyword-tag:hover { background: white; border-color: var(--accent); color: var(--accent); scale: 1.05; }
+
+        .keyword-tag:hover {
+            background: white;
+            border-color: var(--accent);
+            color: var(--accent);
+            scale: 1.05;
+        }
 
         .action-btns {
             display: grid;
@@ -218,77 +276,143 @@
             transition: var(--transition);
         }
 
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15); }
-        .btn-primary:hover { background: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25); }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+        }
 
-        .btn-outline { background: white; color: var(--primary); border: 2px solid #E2E8F0; }
-        .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-5px); }
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid #E2E8F0;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
 
         @media (max-width: 768px) {
-            .grid-detail, .action-btns { grid-template-columns: 1fr; }
-            .proposal-card { padding: 35px; }
-            h1 { font-size: 34px; }
-            header { padding: 30px 0 10px 0; }
+
+            .grid-detail,
+            .action-btns {
+                grid-template-columns: 1fr;
+            }
+
+            .proposal-card {
+                padding: 35px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            header {
+                padding: 30px 0 10px 0;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<header>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5" />
+                    <path d="M12 19l-7-7 7-7" />
+                </svg>
+                모든 제안서 보기
+            </a>
+        </div>
+    </header>
+
     <div class="container">
-        <a href="../index.html" class="back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
-            모든 제안서 보기
-        </a>
+        <div class="proposal-card">
+            <div class="meta-tags">
+                <span class="tag">욕실클리너</span>
+                <span class="tag">네이버</span>
+                <span class="tag">블로그</span>
+            </div>
+
+            <h1>라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개</h1>
+
+            <div class="thumbnail-container">
+                <img src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%9A%95%EC%8B%A4%ED%81%B4%EB%A6%AC%EB%84%88.png"
+                    alt="라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개" class="thumbnail">
+            </div>
+            <div class="action-btns">
+                <a href="https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/copy-1773899485-EC9A95EC8BA4ED81B4EBA6ACEB8488.jpg"
+                    target="_blank" class="btn btn-outline">📄 제품 상세 정보 확인</a>
+                <a href="https://smartstore.naver.com/laroe/products/13268818957" target="_blank"
+                    class="btn btn-primary">🛍️ 구매 사이트로 이동</a>
+            </div>
+            <div
+                style="margin-top: 30px; margin-bottom: 30px; display: flex; gap: 20px; font-size: 13px; font-weight: 600; color: var(--text-light); justify-content: center;">
+                <a href="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%9A%95%EC%8B%A4%ED%81%B4%EB%A6%AC%EB%84%88.png"
+                    target="_blank" style="color: inherit; text-decoration: underline;">url_thumbnail</a>
+                <a href="https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/copy-1773899485-EC9A95EC8BA4ED81B4EBA6ACEB8488.jpg"
+                    target="_blank" style="color: inherit; text-decoration: underline;">url_detail</a>
+                <a href="https://smartstore.naver.com/laroe/products/13268818957" target="_blank"
+                    style="color: inherit; text-decoration: underline;">url_buy</a>
+            </div>
+
+            <div class="grid-detail">
+                <div class="detail-item"><span class="label">Campaign Product</span>
+                    <div class="value">라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개</div>
+                </div>
+                <div class="detail-item"><span class="label">Channel Strategy</span>
+                    <div class="value">네이버 / 블로그</div>
+                </div>
+                <div class="detail-item"><span class="label">Provision</span>
+                    <div class="value">제공 수량 10개</div>
+                </div>
+                <div class="detail-item"><span class="label">Est. Value</span>
+                    <div class="value">13,900원</div>
+                </div>
+
+            </div>
+            <h2>🚨 Special Instructions</h2>
+            <div class="special-note">키워드, 링크삽입, text 1000자 이상, img 15장 이상, 동영상 첨부</div>
+            <h2>📸 Visual Mission</h2>
+            <ul>
+                <li>제품 사용 비포&애프터 이미지 삽입 필수입니다.</li>
+                <li>다목적 사용 가능 어필. 다양한 청소 비포/애프터 이미지(기름때, 물때, 타일 등) 포함.</li>
+                <li>실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수</li>
+            </ul>
+
+            <h2>✍️ Content Narrative</h2>
+            <ul>
+                <li>고밀도 흡착형 거품 세정제</li>
+                <li>라로에 다목적 세정제</li>
+                <li>뿌리고 헹구면 끝! 라로에 다목적 욕실 클리너는 풍성한 거품이 물때와 오염에 달라붙어 간편하게 청소할 수 있습니다. 식물 유래 세정 성분과 상쾌한 그린로즈향으로 매일 사용하는 욕실을 관리하세요.</li>
+                <li>락스 특유의 냄새나 자극 없는 순한 성분 강조. 한 번에 주방/욕실/기름때 등 다목적 청소 가능함 어필(1000자 이상).</li>
+            </ul>
+
+            <h2>🏷️ Keywords Strategy</h2>
+            <div class="keywords-group">
+                <span class="label">Essential Keywords</span>
+                <div class="keywords-list"><span class='keyword-tag'>라로에</span><span class='keyword-tag'>욕실클리너</span><span class='keyword-tag'>다목적클리너</span><span class='keyword-tag'>다목적세제</span><span class='keyword-tag'>친환경세제</span></div>
+            </div>
+            <div class="keywords-group">
+                <span class="label">Optional Keywords</span>
+                <div class="keywords-list"><span class='keyword-tag'>거품청소</span><span class='keyword-tag'>그린로즈향</span><span class='keyword-tag'>기름때제거제</span><span class='keyword-tag'>물때제거</span><span class='keyword-tag'>욕실청소</span><span class='keyword-tag'>찌든때클리너</span><span class='keyword-tag'>친환경청소</span><span class='keyword-tag'>화장실청소</span></div>
+            </div>
+
+
+        </div>
     </div>
-</header>
-
-<div class="container">
-    <div class="proposal-card">
-        <div class="meta-tags">
-            <span class="tag">욕실클리너</span>
-            <span class="tag">네이버</span>
-            <span class="tag">블로그</span>
-        </div>
-
-        <h1>라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개</h1>
-
-        <div class="thumbnail-container">
-            <img src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%9A%95%EC%8B%A4%ED%81%B4%EB%A6%AC%EB%84%88.png" alt="라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개" class="thumbnail">
-        </div>
-        
-        <div class="grid-detail">
-            <div class="detail-item"><span class="label">Campaign Product</span><div class="value">라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개</div></div>
-            <div class="detail-item"><span class="label">Provision</span><div class="value">제공 수량 10개</div></div>
-            <div class="detail-item"><span class="label">Est. Value</span><div class="value">13,900원</div></div>
-            <div class="detail-item"><span class="label">Channel Strategy</span><div class="value">네이버 / 블로그</div></div>
-        </div>
-
-        <h2>📸 Visual Mission</h2>
-        <ul><li>라로에 다목적 욕실클리너 그린로즈향, 500ml, 2개 제품의 외관 디자인이 잘 보이는 고화질 사진 5장 이상</li><li>실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수</li><li>15장 이상 사진 및 동영상 필수. 다양한 청소 비포/애프터 이미지(기름때, 물때, 타일 등) 포함.</li></ul>
-
-        <h2>✍️ Content Narrative</h2>
-        <ul><li>뿌리고 헹구면 끝! 라로에 다목적 욕실 클리너는 풍성한 거품이 물때와 오염에 달라붙어 간편하게 청소할 수 있습니다.</li><li>식물 유래 세정 성분과 상쾌한 그린로즈향으로 매일 사용하는 욕실을 관리하세요.</li><li>락스 특유의 냄새나 자극 없는 순한 성분 강조.</li><li>한 번에 주방/욕실/기름때 등 다목적 청소 가능함 어필(1000자 이상).</li></ul>
-
-        <h2>🚨 Special Instructions</h2>
-        <div class="special-note">제공된 구매 링크 삽입 필수.</div>
-
-        <h2>🏷️ Keywords Strategy</h2>
-        <div class="keywords-group">
-            <span class="label">Essential Keywords</span>
-            <div class="keywords-list"><span class='keyword-tag'>LAROE</span><span class='keyword-tag'>다목적클리너</span><span class='keyword-tag'>라로에</span><span class='keyword-tag'>욕실클리너</span><span class='keyword-tag'>주방기름때제거</span></div>
-        </div>
-        <div class="keywords-group">
-            <span class="label">Optional Keywords</span>
-            <div class="keywords-list"><span class='keyword-tag'>거품청소</span><span class='keyword-tag'>그린로즈향</span><span class='keyword-tag'>기름때제거제</span><span class='keyword-tag'>다목적세제</span><span class='keyword-tag'>다목적클리너</span><span class='keyword-tag'>라로에</span><span class='keyword-tag'>물때제거</span><span class='keyword-tag'>욕실청소</span><span class='keyword-tag'>주방기름때제거</span><span class='keyword-tag'>찌든때클리너</span><span class='keyword-tag'>친환경 청소</span><span class='keyword-tag'>친환경세제</span><span class='keyword-tag'>화장실청소</span><span class='keyword-tag'>후드청소</span></div>
-        </div>
-
-        <div class="action-btns">
-            <a href="https://smartstore.naver.com/laroe/products/13268818957" target="_blank" class="btn btn-primary">🛍️ 구매 사이트로 이동</a>
-            <a href="https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/copy-1773899485-EC9A95EC8BA4ED81B4EBA6ACEB8488.jpg" target="_blank" class="btn btn-outline">📄 제품 상세 정보 확인</a>
-        </div>
-    </div>
-</div>
 
 </body>
+
 </html>

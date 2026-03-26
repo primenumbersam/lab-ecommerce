@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>라로에 - 주방세제 - 네이버</title>
+    <title>라로에 (LAROE) - 주방세제 - 네이버</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
         :root {
-            --primary: #0F172A;
+            --primary: #575757;
             --accent: #3B82F6;
             --bg: #F8FAFC;
             --card-bg: #FFFFFF;
@@ -52,9 +52,7 @@
 
         header {
             padding: 40px 0 20px 0;
-            /* Reduced margin/padding */
             text-align: left;
-            /* Align left for cleaner hierarchy */
         }
 
         .back-link {
@@ -102,7 +100,7 @@
 
         h1 {
             margin: 0 0 40px 0;
-            font-size: 48px;
+            font-size: 38px;
             font-weight: 800;
             color: var(--primary);
             letter-spacing: -2px;
@@ -115,16 +113,19 @@
 
         .thumbnail-container {
             width: 100%;
+            display: flex;
+            justify-content: center;
             border-radius: var(--inner-radius);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             margin-bottom: 50px;
         }
 
         .thumbnail {
-            width: 100%;
-            height: auto;
-            display: block;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--inner-radius);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             transition: transform 1.5s var(--transition);
         }
 
@@ -141,7 +142,7 @@
 
         .detail-item {
             background: #F8FAFC;
-            padding: 30px;
+            padding: 20px;
             border-radius: var(--inner-radius);
             border: 1px solid #F1F5F9;
             transition: var(--transition);
@@ -164,7 +165,7 @@
 
         .value {
             font-weight: 700;
-            font-size: 22px;
+            font-size: 18px;
             color: var(--primary);
             letter-spacing: -0.5px;
         }
@@ -199,8 +200,8 @@
         }
 
         li {
-            margin-bottom: 15px;
-            padding: 20px 25px;
+            margin-bottom: 10px;
+            padding: 10px;
             background: #F8FAFC;
             border-radius: 16px;
             font-size: 16px;
@@ -223,7 +224,7 @@
             color: #92400E;
             font-weight: 600;
             line-height: 1.6;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
         .keywords-group {
@@ -350,10 +351,28 @@
                 <img src="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%A0%9C.png"
                     alt="라로에 멀티플 주방세제 체리향, 500ml, 2개" class="thumbnail">
             </div>
+            <div class="action-btns">
+                <a href="https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/ECA3BCEBB0A9EC84B8ECA09C.jpg"
+                    target="_blank" class="btn btn-outline">📄 제품 상세 정보 확인</a>
+                <a href="https://smartstore.naver.com/laroe/products/13270300429" target="_blank"
+                    class="btn btn-primary">🛍️ 구매 사이트로 이동</a>
+            </div>
+            <div
+                style="margin-top: 30px; margin-bottom: 30px; display: flex; gap: 20px; font-size: 13px; font-weight: 600; color: var(--text-light); justify-content: center;">
+                <a href="https://raw.githubusercontent.com/primenumbersam/lab-ecommerce/refs/heads/main/revu-order/%EC%A3%BC%EB%B0%A9%EC%84%B8%EC%A0%9C.png"
+                    target="_blank" style="color: inherit; text-decoration: underline;">url_thumbnail</a>
+                <a href="https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/ECA3BCEBB0A9EC84B8ECA09C.jpg"
+                    target="_blank" style="color: inherit; text-decoration: underline;">url_detail</a>
+                <a href="https://smartstore.naver.com/laroe/products/13270300429" target="_blank"
+                    style="color: inherit; text-decoration: underline;">url_buy</a>
+            </div>
 
             <div class="grid-detail">
                 <div class="detail-item"><span class="label">Campaign Product</span>
                     <div class="value">라로에 멀티플 주방세제 체리향, 500ml, 2개</div>
+                </div>
+                <div class="detail-item"><span class="label">Channel Strategy</span>
+                    <div class="value">네이버 / 블로그</div>
                 </div>
                 <div class="detail-item"><span class="label">Provision</span>
                     <div class="value">제공 수량 10개</div>
@@ -361,53 +380,39 @@
                 <div class="detail-item"><span class="label">Est. Value</span>
                     <div class="value">13,900원</div>
                 </div>
-                <div class="detail-item"><span class="label">Channel Strategy</span>
-                    <div class="value">네이버 / 블로그</div>
-                </div>
-            </div>
 
+            </div>
+            <h2>🚨 Special Instructions</h2>
+            <div class="special-note">키워드, link 삽입, text 1000자 이상, img 15장 이상</div>
             <h2>📸 Visual Mission</h2>
             <ul>
-                <li>라로에 멀티플 주방세제 체리향, 500ml, 2개 제품의 외관 디자인이 잘 보이는 고화질 사진 5장 이상</li>
-                <li>실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수</li>
                 <li>고화질 이미지 15장 이상 + 동영상 또는 움짤 1개 이상. 식사 후 기름기 있는 후라이팬, 식기류 닦는 모습. 젖병, 이유식기, 채소/과일 세척 장면. 수세미에 거품이 충분히
                     나오는 모습.</li>
+                <li>상세페이지를 참고해 제품특징을 자연스럽게 언급해주세요.(상세페이지를 참고해주시되, 캡쳐 또는 똑같이 사용하지 말아주세요.)</li>
+                <li>제품의 외관 디자인이 잘 보이는 고화질 사진 15장 이상</li>
+                <li>실제 사용 장면 (거품 생성, 세척 과정 등) 동영상 또는 GIF 1개 필수</li>
             </ul>
 
             <h2>✍️ Content Narrative</h2>
             <ul>
-                <li>한 번의 펌핑으로도 풍성한 거품과 강력한 세정력을 경험하세요.</li>
-                <li>라로에 멀티플 주방세제는 과일, 채소까지 씻을 수 있는 1종 안심 성분으로 만들어졌으며, 신선한 체리향으로 설거지 시간을 즐겁게 만들어줍니다.</li>
-                <li>비건 인증 제품 부각.</li>
-                <li>한 제품으로 젖병/이유식기/채소/과일 세척 가능 강조(별도 세제 불편함 해소).</li>
-                <li>예쁜 디자인 및 합리적 가격(선물용).</li>
-                <li>대용량 리필팩 효율성.</li>
+                <li>한 번의 펌핑으로도 풍성한 거품과 강력한 세정력을 경험하세요. 라로에 멀티플 주방세제는 과일, 채소까지 씻을 수 있는 1종 세척세제 성분으로 만들어졌으며, 신선한 체리향으로 설거지
+                    시간을 즐겁게 만들어줍니다.</li>
+                <li>한 제품으로 젖병/이유식기/채소/과일 세척 가능 강조(별도 세제 불편함 해소). 예쁜 디자인 및 합리적 가격(선물용).</li>
             </ul>
-
-            <h2>🚨 Special Instructions</h2>
-            <div class="special-note">제품명 '라로에 멀티플 주방세제'로 언급 필수. 자사몰 링크 포함.</div>
 
             <h2>🏷️ Keywords Strategy</h2>
             <div class="keywords-group">
                 <span class="label">Essential Keywords</span>
-                <div class="keywords-list"><span class='keyword-tag'>LAROE</span><span class='keyword-tag'>대용량
-                        주방세제</span><span class='keyword-tag'>라로에</span><span class='keyword-tag'>주방세제</span></div>
+                <div class="keywords-list"><span class='keyword-tag'>라로에 주방세제</span><span class='keyword-tag'>체리향
+                        주방세제</span><span class='keyword-tag'>친환경 주방세제</span></div>
             </div>
             <div class="keywords-group">
                 <span class="label">Optional Keywords</span>
-                <div class="keywords-list"><span class='keyword-tag'>과일세척제</span><span class='keyword-tag'>기름기
-                        제거</span><span class='keyword-tag'>대용량 주방세제</span><span class='keyword-tag'>라로에</span><span
-                        class='keyword-tag'>설거지</span><span class='keyword-tag'>아기 주방세제</span><span
-                        class='keyword-tag'>주방세제</span><span class='keyword-tag'>주방세제 리필</span><span
-                        class='keyword-tag'>체리향</span><span class='keyword-tag'>친환경 주방세제</span></div>
+                <div class="keywords-list"><span class='keyword-tag'>아기 주방세제</span><span
+                        class='keyword-tag'>과일세척제</span><span class='keyword-tag'>맨손설거지</span></div>
             </div>
 
-            <div class="action-btns">
-                <a href="https://smartstore.naver.com/laroe/products/13270300429" target="_blank"
-                    class="btn btn-primary">🛍️ 구매 사이트로 이동</a>
-                <a href="https://ecimg.cafe24img.com/pg1892b93862555010/laroe/web/upload/NNEditor/20260319/ECA3BCEBB0A9EC84B8ECA09C.jpg"
-                    target="_blank" class="btn btn-outline">📄 제품 상세 정보 확인</a>
-            </div>
+
         </div>
     </div>
 
